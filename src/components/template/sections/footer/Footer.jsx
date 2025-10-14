@@ -1,4 +1,4 @@
-import Section from "components/ui/Section";
+import Section from "components/template/ui/Section";
 import { Button } from "pages";
 import FSDImage from '../../ui/FSDImage';
 import Logo from "/public/template/logo.png";

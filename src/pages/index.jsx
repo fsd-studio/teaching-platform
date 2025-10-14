@@ -1,5 +1,6 @@
-import HeadComponent from "components/config/HeadComponent";
-import HeroMinimalist from "components/sections/hero/HeroMinimalist";
+import HeadComponent from "components/template/config/HeadComponent";
+import HeroMinimalist from "components/template/sections/hero/HeroMinimalist";
+import Quote from "components/template/sections/quote/Quote";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from "next/head";
 
@@ -15,11 +16,11 @@ export async function getServerSideProps({ locale }) {
 export default function Home() {
   return (
     <>
-      <HeadComponent
-      />
+      <HeadComponent/>
 
       <div>
         <HeroMinimalist />
+        <Quote></Quote>
       </div>
     </>
   );

@@ -1,4 +1,4 @@
-import Layout from "components/layouts/Layout";
+import Layout from "components/template/layouts/Layout";
 import { appWithTranslation } from "next-i18next";
 import { Geist, Geist_Mono } from "next/font/google";
 import LocalFont from "next/font/local";
