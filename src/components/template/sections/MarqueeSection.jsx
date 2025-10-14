@@ -1,4 +1,4 @@
-import FSDImage from "components/ui/FSDImage";
+import FSDImage from "components/template/ui/FSDImage";
 import Marquee from "react-fast-marquee";
 
 

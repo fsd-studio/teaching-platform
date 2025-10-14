@@ -1,6 +1,6 @@
 // components/layouts/Layout.jsx
-import Footer from "components/sections/footer/Footer";
-import Nav from "components/sections/nav/Nav";
+import Footer from "components/template/sections/footer/Footer";
+import Nav from "components/template/sections/nav/Nav";
 
 export default function Layout({ children, fonts }) {
   return (
