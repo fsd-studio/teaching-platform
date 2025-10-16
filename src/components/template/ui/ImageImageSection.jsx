@@ -1,0 +1,62 @@
+import { FaArrowRight } from "react-icons/fa";
+import FSDImage from "./FSDImage";
+import Link from "next/link";
+import Title from "./Title";
+
+function ImageImageSection({
+    title,
+    srcL,
+    altL,
+    linkL,
+    titleL,
+    srcR,
+    altR,
+    linkR,
+    titleR
+
+}) {
+  return (
+    <Section outerC="bg-primary/70">
+      <Title>{title}</Title>
+      <div className="relative flex flex-col md:flex-row w-full md:h-[400px] overflow-hidden rounded-3xl">
+        {/* Left Side */}
+        <Link href={linkL} className="relative w-full md:w-1/2 block h-full clip-left-responsive group">
+          <FSDImage
+            src={srcL}
+            alt={altL}
+            className="object-cover h-[300px] w-full md:h-full transform group-hover:scale-105 transition-all duration-200 ease-in"
+          />
+          <div className="absolute inset-0 bg-black/30 text-white items-start justify-start p-4">
+            <div className="flex items-center gap-4">
+              <h2 className="text-4xl md:text-6xl font-primary font-bold">{titleL}</h2>
+              <p className="items-center flex gap-3">
+                see more{" "}
+                <FaArrowRight className="inline group-hover:ms-1 transition-all" />
+              </p>
+            </div>
+          </div>
+        </Link>
+
+        {/* Right Side */}
+        <Link href={linkR} className="relative w-full md:w-1/2 h-full clip-right-responsive group">
+            <FSDImage
+                src={srcR}
+                alt={altR}
+                className="object-cover h-[300px] w-full md:h-full group-hover:scale-105 transition-all duration-200 ease-in"
+            />
+            <div className="absolute inset-0 bg-black/30 flex text-white items-end justify-start p-4">
+                <div className="flex items-center gap-4">
+                <h2 className="text-4xl md:text-6xl font-primary font-bold">{titleR}</h2>
+                <p className="items-center flex gap-3">
+                    see more{" "}
+                    <FaArrowRight className="inline group-hover:ms-1 transition-all" />
+                </p>
+                </div>
+            </div>
+        </Link>
+      </div>
+    </Section>
+  );
+}
+
+export default ImageImageSection;
