@@ -1,4 +1,5 @@
 import HeadComponent from "components/template/config/HeadComponent";
+import FAQ from "components/template/sections/faq/FAQ";
 import HeroMinimalist from "components/template/sections/hero/HeroMinimalist";
 import Quote from "components/template/sections/quote/Quote";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
@@ -19,6 +20,7 @@ export default function Home() {
       <HeadComponent/>
 
       <div>
+        <FAQ></FAQ>
         <HeroMinimalist />
         <Quote></Quote>
       </div>
