@@ -1,0 +1,47 @@
+{
+  "include": [
+    "src/**/*",
+    "next-env.d.ts",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts"
+  ],
+  "compilerOptions": {
+    "baseUrl": ".", // Set to "." to make "@/" math start from the root
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    },
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "allowJs": true,
+    "strict": true,
+    "target": "esnext",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ], // Essential for React/Browser types
+    "skipLibCheck": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    // Your preferred strict settings
+    "noImplicitAny": true,
+    "noImplicitOverride": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noUncheckedIndexedAccess": true
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
