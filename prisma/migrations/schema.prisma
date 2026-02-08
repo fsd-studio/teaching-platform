@@ -1,0 +1,164 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  clerkId   String?  @unique // Clerk user ID
+  type      String   @default("NNA") // NNA or other types
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  groups        GroupUser[]
+  subscriptions PersonalSubscription[]
+  bookings      Booking[]
+  events        UserEvent[]
+
+  @@index([clerkId])
+}
+
+model Group {
+  id        String   @id @default(cuid())
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  users  GroupUser[]
+  events Event[]
+}
+
+model GroupUser {
+  id        String   @id @default(cuid())
+  userId    String
+  groupId   String
+  role      String   @default("member") // member, admin, etc.
+  createdAt DateTime @default(now())
+
+  // Relations
+  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  group Group @relation(fields: [groupId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, groupId])
+  @@index([userId])
+  @@index([groupId])
+}
+
+model PersonalSubscription {
+  id             String   @id @default(cuid())
+  userId         String
+  subscriptionId String // External subscription ID (Stripe, etc.)
+  activationDate DateTime
+  nrOfUses       Int      @default(0)
+  isValid        Boolean  @default(true)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  // Relations
+  user         User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  subscription Subscription @relation(fields: [subscriptionId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([subscriptionId])
+}
+
+model Subscription {
+  id               String   @id @default(cuid())
+  type             String
+  totalAllowedUses Int
+  description      String?
+  duration         Int // in days
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  // Relations
+  personalSubscriptions PersonalSubscription[]
+}
+
+model Booking {
+  id              String    @id @default(cuid())
+  userId          String
+  BookingOptionId String
+  Notes           String?
+  date            DateTime
+  startTime       DateTime?
+  endTime         DateTime?
+  status          String    @default("confirmed") // confirmed, cancelled, completed
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  // Relations
+  user          User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  bookingOption BookingOption @relation(fields: [BookingOptionId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([BookingOptionId])
+  @@index([date])
+}
+
+model Room {
+  id             String          @id @default(cuid())
+  seats          Int?
+  type           String // type of room (e.g., "conference", "office", "studio")
+  name           String
+  category       String // "meeting" or "desk"
+  img            String
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+  bookingOptions BookingOption[]
+}
+
+model BookingOption {
+  id          String    @id @default(cuid())
+  roomId      String
+  room        Room      @relation(fields: [roomId], references: [id], onDelete: Cascade)
+  title       String
+  duration    Int
+  price       Int?
+  description String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  bookings    Booking[]
+
+  @@index([roomId])
+}
+
+model Event {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  date        DateTime
+  groupId     String?
+  image       String?  @default("/template/pitch.png")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  group      Group?      @relation(fields: [groupId], references: [id], onDelete: SetNull)
+  userEvents UserEvent[]
+
+  @@index([groupId])
+  @@index([date])
+}
+
+model UserEvent {
+  id        String   @id @default(cuid())
+  userId    String
+  eventId   String
+  status    String   @default("registered") // registered, attended, cancelled
+  createdAt DateTime @default(now())
+
+  // Relations
+  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  event Event @relation(fields: [eventId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, eventId])
+  @@index([userId])
+  @@index([eventId])
+}
