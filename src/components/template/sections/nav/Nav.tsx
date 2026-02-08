@@ -1,18 +1,51 @@
 'use client';
 
-import { motion } from 'motion/react';
-import { useState } from 'react';
-import HamburgerMenu from '../../ui/HamburgerMenu.jsx';
-import Section from '../../ui/Section.jsx';
+import { motion, Variants } from 'motion/react';
+import { ReactNode, useState } from 'react';
 
 import { useTranslation } from 'next-i18next';
-import { LangSwitcherMinimalist, LangSwitcherMobile } from './LangSwitcher.jsx';
+import HamburgerMenu from '@/components/template/ui/HamburgerMenu.jsx';
+import Section from '@/components/template/ui/Section';
 
-const Nav = ({ 
+type NavProps = {
+  children?: ReactNode, 
+  logo?: string,
+}
+
+const navVariants: Variants = {
+  open: { 
+    scaleY: 1,
+    transition: {
+      delayChildren: 0.3,
+      staggerChildren: 0.1,
+      ease: [0.12, 0, 0.29, 0]
+    },
+  },
+  closed: { 
+    scaleY: 0,
+    transition: {
+      duration: .6,
+      delay: 0.5,              
+      staggerChildren: 0.1,
+      staggerDirection: -1,
+      ease: [0.22, 1, 0.36, 1]
+    },
+  },
+}
+
+const linkVariants: Variants = {
+  open: {
+    y: 0,
+  },
+  closed: {
+    y: 50,
+  }
+}
+
+export default function Nav ({ 
   children, 
   logo = '/template/logo.png',
-  ...props 
-}) => {
+}: NavProps) {
   const { t } = useTranslation('nav');
 
   const links = [t('about'), t('menu'), t('gallery'), t('contact')];
@@ -24,7 +57,7 @@ const Nav = ({
       {/* navigation bar */}
       <div className='left-0 fixed w-full z-50 top-0 '>
         <nav>
-          <Section outerC="!py-0">
+          <Section outerClassName="!py-0">
             <div className='flex items-center h-20 md:h-28 lg:h-26 justify-between w-full'>
               {/* Logo */}
               <a href="/">
@@ -34,7 +67,7 @@ const Nav = ({
               {children}
               
               <div>
-                <LangSwitcherMinimalist />
+                {/* <LangSwitcherMinimalist /> */}
               </div>
 
               {/* Large screen navigation */}
@@ -59,50 +92,21 @@ const Nav = ({
       {/* Expanded mobile menu */}
       <motion.nav initial={false}
         animate={mobileOpen ? "open" : "closed"}
-        variants={{
-          open: { 
-            scaleY: 1,
-            transition: {
-              delayChildren: 0.3,
-              staggerChildren: 0.1,
-              ease: [0.12, 0, 0.29, 0]
-            },
-          },
-
-          closed: { 
-            scaleY: 0,
-            transition: {
-              duration: .6,
-              delay: 0.5,              
-              staggerChildren: 0.1,
-              staggerDirection: -1,
-              ease: [0.22, 1, 0.36, 1]
-            },
-          },
-        }}
+        variants={navVariants}
         className={`lg:hidden bg-primary origin-top fixed z-40 top-0 left-0 h-screen w-full overflow-hidden`}>
           <div className='flex flex-col justify-center items-center h-full'>
             {links.map((title, index) => (
               <div key={index} className='overflow-hidden'>
-                <motion.a variants={{
-                  open: {
-                    y: 0,
-                  },
-                  closed: {
-                    y: 50,
-                  }
-                }} 
+                <motion.a variants={linkVariants} 
       
                 className='text-secondary text-3xl text-center font-serif w-full block mt-6' href={`/#${title}`}>{title}</motion.a>
               </div>
             ))}
 
-            <LangSwitcherMobile></LangSwitcherMobile>
+            {/* <LangSwitcherMobile></LangSwitcherMobile> */}
           </div>
       </motion.nav>
     </div>
 
   )
 }
-
-export default Nav

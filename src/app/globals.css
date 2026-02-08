@@ -24,13 +24,6 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 .outline-text {
   color: rgba(0, 0, 0, 0); /* Fill color */
   -webkit-text-stroke-width: 1.5px; /* Outline thickness */

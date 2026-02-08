@@ -1,7 +1,7 @@
-import Section from "components/template/ui/Section";
-import { Button } from "pages";
-import FSDImage from '../../ui/FSDImage';
-import Logo from "/public/template/logo.png";
+import FSDImage from "@/components/template/ui/FSDImage";
+import Section from "@/components/template/ui/Section";
+import Logo from "public/template/logo.png";
+import { ReactNode } from "react";
 
 import {
     LiaFacebook,
@@ -10,33 +10,41 @@ import {
     LiaTwitter,
 } from "react-icons/lia";
 
+type FooterProps = {
+    logo?: string,
+    name?: string,
+    sections?: string[],
+    socialMedia?: Partial<Record<SocialPlatform, string>>
+}
+
+type SocialPlatform = "twitter" | "facebook" | "instagram" | "linkedin" | "x";
+
 function Footer({
-    logo = Logo,
+    logo = Logo.src,
     name = "Your Brand",
     sections = ["About", "Menu", "Gallery", "Contact"],
-    button = <Button size="lg">Reserve</Button>,
     socialMedia = {
         twitter: "x.com",
         facebook: "facebook.com",
         instagram: "instagram.com",
         linkedin: "linkedin.com",
     }
-}) {
+}: FooterProps) {
     const currentDate = new Date()
     const currentYear = currentDate.getFullYear()
 
-    const icons = {
+    const icons: Record<SocialPlatform, ReactNode> = {
         instagram: <LiaInstagram className="h-full w-full text-black/80"/>,
         x: <LiaTwitter className="h-full w-full text-black/80"/>,
         twitter: <LiaTwitter className="h-full w-full text-black/80"/>,
         facebook: <LiaFacebook className="h-full w-full text-black/80"/>,
         linkedin: <LiaLinkedin className="h-full w-full text-black/80"/>,
-    }  
+    };
 
-    const socialEntries = Object.entries(socialMedia)
+    const socialEntries = Object.entries(socialMedia) as [SocialPlatform, string][]
 
     return (
-        <Section innerC="space-y-8" outerC="bg-secondary !py-10">
+        <Section innerClassName="space-y-8" outerClassName="bg-secondary !py-10">
             <div className="md:flex justify-between">
                 <div>
                     <div className="flex items-center h-fit gap-8 justify-center">
@@ -52,9 +60,9 @@ function Footer({
                     </div>
 
                     <div className="gap-4 text-lg mt-4 hidden md:flex">
-                        {socialEntries.map(([social, link], index) => (
+                        {socialEntries.map(([platform, link], index) => (
                             <a key={index} href={link} className="w-10 h-10">
-                                {icons[social]}
+                                {icons[platform]}
                             </a>
                         ))}
                     </div>
