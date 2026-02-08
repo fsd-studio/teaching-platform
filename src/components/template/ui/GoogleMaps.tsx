@@ -1,6 +1,10 @@
 'use client'
 
-function GoogleMaps({className}) {
+function GoogleMaps({
+  className
+}: {
+  className: string
+}) {
   return (
     <div className={className}>
       <iframe

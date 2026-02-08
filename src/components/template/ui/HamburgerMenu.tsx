@@ -1,6 +1,11 @@
+import { MouseEventHandler } from "react";
+
 function HamburgerMenu({
     isOpen,
     onClick
+}: {
+    isOpen: boolean,
+    onClick: MouseEventHandler
 }) {
     const barClass = "h-1 w-8 rounded-full transition-all duration-300 ease-in-out" + (isOpen ? " bg-secondary" : " bg-primary");
 

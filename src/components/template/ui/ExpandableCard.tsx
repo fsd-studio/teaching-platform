@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 
 export default function ExpandableCard({ 
@@ -7,6 +7,12 @@ export default function ExpandableCard({
   subTitle = "no subTitle",
   summary = "no summary",
   className = "border-blue-300 bg-blue-300/20"
+ }: {
+  children: ReactNode,
+  title?: string,
+  subTitle?: string,
+  summary?: string,
+  className?: string
  }) {
   const [isOpen, setIsOpen] = useState(false);
   

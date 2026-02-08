@@ -1,18 +1,18 @@
 "use client"
 
-import { motion } from 'motion/react';
+import Section from '@/components/template/ui/Section';
 import { useState } from 'react';
 import { FaCalendarAlt } from 'react-icons/fa';
-import Section from './Section';
+import { motion } from "framer-motion";
 
 function ReserveButton() {
   const [open, isOpen] = useState(false)
 
   return (
     <div className="fixed bottom-4 right-0 w-full z-50">
-      <Section outerC="!py-0 !px-0 !overflow-visible" innerC="px-6 md:px-10 lg:max-w-[1360px] mx-auto">
+      <Section outerClassName="!py-0 !px-0 !overflow-visible" innerClassName="px-6 md:px-10 lg:max-w-[1360px] mx-auto">
           {/* Decorative background */}
-          <motion.div 
+          <motion.div
             initial={false}
             animate={open ? "open" : "closed"}
             variants={{

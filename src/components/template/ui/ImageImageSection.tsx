@@ -2,6 +2,7 @@ import { FaArrowRight } from "react-icons/fa";
 import FSDImage from "./FSDImage";
 import Link from "next/link";
 import Title from "./Title";
+import Section from "@/components/template/ui/Section";
 
 function ImageImageSection({
     title,
@@ -13,10 +14,19 @@ function ImageImageSection({
     altR,
     linkR,
     titleR
-
+}: {
+    title: string,
+    srcL: string,
+    altL: string,
+    linkL: string,
+    titleL: string,
+    srcR: string,
+    altR: string,
+    linkR: string,
+    titleR: string
 }) {
   return (
-    <Section outerC="bg-primary/70">
+    <Section outerClassName="bg-primary/70">
       <Title>{title}</Title>
       <div className="relative flex flex-col md:flex-row w-full md:h-[400px] overflow-hidden rounded-3xl">
         {/* Left Side */}
