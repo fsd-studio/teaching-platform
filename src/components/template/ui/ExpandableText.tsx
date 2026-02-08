@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { IoIosArrowDown } from "react-icons/io";
 
 export default function ExpandableText({ 
   children,
+ }: {
+  children: ReactNode
  }) {
   const [isOpen, setIsOpen] = useState(false);
   

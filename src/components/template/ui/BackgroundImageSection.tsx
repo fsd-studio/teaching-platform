@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import FSDImage from "./FSDImage";
 import Section from "./Section";
 import Title from "./Title";
@@ -8,9 +9,15 @@ function BackgroundImageSection({
     innerC,
     outerC,
     children
+}: {
+    src: string,
+    title: string,
+    innerC: string,
+    outerC: string,
+    children: ReactNode
 }) {
   return (
-    <Section outerC={outerC} innerC={innerC}>
+    <Section outerClassName={outerC} innerClassName={innerC}>
       {/* Background Image */}
       <FSDImage
         quality={100}

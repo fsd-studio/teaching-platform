@@ -1,9 +1,14 @@
+import { ReactNode } from "react";
 import { GiFrog } from "react-icons/gi";
 
 function Badge({
     children,
     badge = <GiFrog className='w-16 h-16 text-blue-800' />,
     className
+}: {
+  children: ReactNode,
+  badge: ReactNode,
+  className: string
 }) {
   return (
     <div className='relative'>

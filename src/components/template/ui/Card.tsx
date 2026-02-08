@@ -1,8 +1,13 @@
+type TypeType = "primary" | "neutral" | "success" | "danger"
 
 function Card({ 
         title = "No Title",
         content = "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
         type = "primary"
+    }: {
+        title: string,
+        content: string,
+        type: TypeType
     }) {
 
     const styles = {

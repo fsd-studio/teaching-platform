@@ -1,7 +1,13 @@
+import { ReactNode } from "react";
+
 function Title({
     children,
     center,
     className
+}: {
+  children: string,
+  center?: string,
+  className?: ReactNode
 }) {
   return (
     <>

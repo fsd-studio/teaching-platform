@@ -1,8 +1,11 @@
+import { useTranslation } from "next-i18next";
 import ExpandableCard from "./ExpandableCard";
 import FSDImage from "./FSDImage";
 import Section from "./Section";
+import Title from "@/components/template/ui/Title";
 
 function ImageTextSection() {
+    const {t} = useTranslation('')
   return (
     <>
         <Section>
