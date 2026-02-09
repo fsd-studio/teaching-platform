@@ -13,8 +13,20 @@ const geistMono = Geist_Mono({
 });
 
 const fontPrimary = localFont({
-    src: '../fonts/DO.otf',
+    src: '../fonts/Bigilla.otf',
     variable: '--font-primary',
+    display: 'swap',
+});
+
+const fontPrimaryBold = localFont({
+    src: '../fonts/Bigilla-Bold.otf',
+    variable: '--font-primary-bold',
+    display: 'swap',
+});
+
+const fontSecondary = localFont({
+    src: '../fonts/NMB.otf',
+    variable: '--font-secondary',
     display: 'swap',
 });
 
@@ -25,7 +37,7 @@ export default function RootLayout({
 }) {
 
     return (
-        <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${fontPrimary.variable}`}>
+        <html lang="hu" className={`${geistSans.variable} ${fontSecondary.variable} ${geistMono.variable} ${fontPrimary.variable} ${fontPrimaryBold.variable}`}>
             <body>
                 {children}
             </body>
