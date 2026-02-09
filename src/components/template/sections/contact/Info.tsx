@@ -1,4 +1,4 @@
-import Section from "pages/components/ui/Section";
+import Section from "@/components/template/ui/Section";
 
 function Info({
     location = "country, city 2640, street 24",
@@ -7,13 +7,13 @@ function Info({
 }) {
   return (
     <div className="text-center font-black text-xl text-white">
-        <Section outerC="bg-green-500 !py-6">
+        <Section outerClassName="bg-green-500 !py-6">
             <p>{location}</p>
         </Section>
-        <Section outerC="bg-red-500 !py-6">
+        <Section outerClassName="bg-red-500 !py-6">
             <p>{phoneNumber}</p>
         </Section>
-        <Section outerC="bg-amber-500 !py-6">
+        <Section outerClassName="bg-amber-500 !py-6">
             <p>{email}</p>
         </Section>
     </div>

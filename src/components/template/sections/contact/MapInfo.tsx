@@ -19,7 +19,7 @@ function MapInfo({
     ]
 
     return (
-        <Section innerC="flex flex-col md:flex-row gap-12 lg:justify-evenly items-center">
+        <Section innerClassName="flex flex-col md:flex-row gap-12 lg:justify-evenly items-center">
             <GoogleMaps className="w-full md:w-[70%] lg:w-[50%] h-[400px]"></GoogleMaps>
 
             <div className='text-center md:text-end space-y-6 w-full md:w-auto font-semibold text-lg'>
