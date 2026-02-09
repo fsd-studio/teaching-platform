@@ -1,6 +1,4 @@
-import FSDImage from "@/components/template/ui/FSDImage";
 import Section from "@/components/template/ui/Section";
-import Logo from "public/template/logo.png";
 import { ReactNode } from "react";
 
 import {
