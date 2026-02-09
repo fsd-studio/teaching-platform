@@ -1,12 +1,4 @@
 import Section from "@/components/template/ui/Section";
-import { ReactNode } from "react";
-
-import {
-    LiaFacebook,
-    LiaInstagram,
-    LiaLinkedin,
-    LiaTwitter,
-} from "react-icons/lia";
 
 type FooterProps = {
     logo?: string,
@@ -20,25 +12,9 @@ type SocialPlatform = "twitter" | "facebook" | "instagram" | "linkedin" | "x";
 function Footer({
     name = "Dr Somogyi Krisztina",
     sections = ["About", "Schedule", "Contact"],
-    socialMedia = {
-        twitter: "x.com",
-        facebook: "facebook.com",
-        instagram: "instagram.com",
-        linkedin: "linkedin.com",
-    }
 }: FooterProps) {
     const currentDate = new Date()
     const currentYear = currentDate.getFullYear()
-
-    const icons: Record<SocialPlatform, ReactNode> = {
-        instagram: <LiaInstagram className="h-full w-full text-black/80"/>,
-        x: <LiaTwitter className="h-full w-full text-black/80"/>,
-        twitter: <LiaTwitter className="h-full w-full text-black/80"/>,
-        facebook: <LiaFacebook className="h-full w-full text-black/80"/>,
-        linkedin: <LiaLinkedin className="h-full w-full text-black/80"/>,
-    };
-
-    const socialEntries = Object.entries(socialMedia) as [SocialPlatform, string][]
 
     return (
         <Section innerClassName="space-y-2" outerClassName="bg-[linear-gradient(180deg,rgba(255,255,255,1)_30%,rgba(218,252,237,1)_100%)] !pb-6">
