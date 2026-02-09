@@ -1,5 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import React, { ReactNode, useEffect, useRef } from "react";
 import { IoIosArrowDown } from "react-icons/io";
+
+type FAQProps = {
+  faqObject?: Record<string, string>;
+};
 
 export default function FAQ({
   faqObject = {
@@ -7,9 +11,9 @@ export default function FAQ({
     "test1": "answer1",
     "test2": "answer2answer2answer2answer2answer2answer2answer2answer2answer2answer2answer2answer2answer2answer2answer2answer2answer2answer2answer2answer2answer2answer2",
   }
-}) {
-  const [openIndex, setOpenIndex] = useState(null)
-  const [faqList, setFaqList] = useState([])
+}: FAQProps) {
+  const [openIndex, setOpenIndex] = React.useState<number | null>(null)
+  const [faqList, setFaqList] = React.useState<[string, string][]>([])
   
 
   useEffect(() => {
@@ -33,9 +37,15 @@ export function FaqBar({
   setOpenIndex,
   index,
   question
+}: {
+  children: ReactNode,
+  openIndex: number | null,
+  setOpenIndex: React.Dispatch<React.SetStateAction<number | null>>,
+  index: number,
+  question: string
 }) {
-  const containerRef = useRef(null)
-  const [height, setHeight] = useState(null)
+  const containerRef = useRef<HTMLDivElement | null>(null)
+  const [height, setHeight] = React.useState<string>("")
   
   const handleClick = () => {
     if (index == openIndex) {

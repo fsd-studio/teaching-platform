@@ -1,9 +1,9 @@
 "use client"
 
-import Button from "components/template/ui/Button";
-import GoogleMaps from "components/template/ui/GoogleMaps";
-import Input from "components/template/ui/Input";
-import Section from "components/template/ui/Section";
+import Button from "@/components/template/ui/Button";
+import GoogleMaps from "@/components/template/ui/GoogleMaps";
+import Input from "@/components/template/ui/Input";
+import Section from "@/components/template/ui/Section";
 import { useState } from "react";
 
 import * as z from "zod";

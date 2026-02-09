@@ -13,10 +13,10 @@ const Button = ({
   ...props 
 }: {
   children: ReactNode, 
-  variant: VariantType,
-  outline: boolean,
-  size: SizeType,
-  disabled: boolean,
+  variant?: VariantType,
+  outline?: boolean,
+  size?: SizeType,
+  disabled?: boolean,
   className: string
 }) => {
   // Base styles that apply to all buttons
