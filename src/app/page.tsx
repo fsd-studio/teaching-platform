@@ -31,7 +31,7 @@ function page() {
               <ul className='lg:text-xl'>
                 <li><LinkWrapper link={"tel:+3688444644"}> +3688444644</LinkWrapper>, <LinkWrapper link={"tel:+36309463145"}>+36309463145</LinkWrapper></li>
                 <li><LinkWrapper link={"mailto:info@promedicum.hu"}>info@promedicum.hu</LinkWrapper></li>
-                <li><LinkWrapper link={"https://promedicum.hu/idopontfoglalas"}>Promedicum</LinkWrapper></li>
+                <li><LinkWrapper link={"https://promedicum.hu/idopontfoglalas"}>időpontfoglalás</LinkWrapper></li>
               </ul>
             </div>
 
