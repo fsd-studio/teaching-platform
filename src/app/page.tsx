@@ -51,7 +51,7 @@ function page() {
 
       <Section id='Időpontok' innerClassName='flex flex-col gap-4'>
           <div className='my-auto w-full flex flex-col gap-4 md:gap-6 md:max-w-[80%] mx-auto'>
-            <Title>Mikor rendelek:</Title>
+            <Title>Rendelési id<span className='text-3xl font-semibold md:text-xl md:font-bold'>ő</span>m:</Title>
 
             <TimetableRow value="8-14" label={
               <>
