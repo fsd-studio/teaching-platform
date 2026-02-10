@@ -59,9 +59,11 @@ function page() {
       </Section>
 
       <Section id='Időpontok' innerClassName='flex flex-col gap-4'>
+
         <div className='md:max-w-[80%] w-full flex flex-col gap-4 md:gap-6 mx-auto'>
-          <Title>Mikor rendelek:</Title>
-          <div className='w-full grid grid-cols-2 lg:grid-cols-4  gap-4'>
+          <div className='my-auto w-full flex flex-col gap-4 md:gap-6 md:max-w-[80%] mx-auto'>
+            <Title>Rendelési időm:</Title>
+
             {Object.entries(timetable).map(([key, value], index) => (
               <TimetableRow key={index} value={value} label={key} />
             ))}
