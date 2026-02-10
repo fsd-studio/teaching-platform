@@ -21,7 +21,7 @@ function Footer({
         <Section innerClassName="space-y-2" outerClassName="bg-[linear-gradient(180deg,rgba(255,255,255,1)_30%,rgba(218,252,237,1)_100%)] !pb-6">
             <div className="flex justify-between md:-mt-11">
                 <div className="flex flex-col h-fit">
-                    <h2 className="text-5xl md:text-[90px] font-primary-bold">
+                    <h2 className="text-3xl md:text-[70px] font-primary">
                         {name}
                     </h2>
                     {/* <div className="gap-4 text-lg hidden md:flex">
@@ -34,7 +34,7 @@ function Footer({
                 </div>
 
 
-                <div className="flex flex-col gap-2 text-end font-primary-bold text-xl md:text-2xl">
+                <div className="flex flex-col gap-2 text-end font-primary font-light text-xl md:text-2xl">
                     {sections.map((section, index) => (
                         <a key={index} href={`#${section}`}>{section}</a>
                     ))}

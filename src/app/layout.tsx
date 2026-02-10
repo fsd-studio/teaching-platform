@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Oswald } from "next/font/google";
 import localFont from "next/font/local";
 import './globals.css';
 
@@ -12,10 +12,9 @@ const geistMono = Geist_Mono({
     subsets: ['latin'],
 });
 
-const fontPrimary = localFont({
-    src: '../fonts/Bigilla.otf',
+const fontPrimary = Oswald({
     variable: '--font-primary',
-    display: 'swap',
+    subsets: ['latin'],
 });
 
 const fontPrimaryBold = localFont({

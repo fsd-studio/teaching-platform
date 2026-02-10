@@ -9,11 +9,12 @@ import { Title } from '@/components/ui/Title';
 // https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadata-object
 
 export const metadata = {
-  title: 'Dr Somogyi Krisztina',   
+  title: 'Dr Somogyi Krisztina',
   description: 'Veszprémi fogorvos 1995 óta, konzerváló kezelésekkel, fogpótlásokkal és gyermekfogászattal.',
 };
 
 const timetable = {
+  "Hétfő": "8-14",
   "Kedd": "14-19",
   "Szerda": "8-14",
   "Péntek": "8-14"
@@ -22,19 +23,27 @@ const timetable = {
 function page() {
   return (
     <Layout>
-      <Section innerClassName='h-screen' outerClassName='!h-screen !py-0 bg-[linear-gradient(71deg,rgba(255,255,255,1)_0%,rgba(218,252,237,1)_100%)]'>
-        <div className='mx-auto max-w-[380px] md:max-w-[500px] lg:max-w-max relative flex gap-10 lg:gap-18 mt-8 md:mt-14 justify-center flex-col lg:flex-row h-full lg:justify-between'>
-          <div className='lg:my-auto md:order-2 lg:order-0'>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-secondary">
-              Excellence in every smile.
-            </h1>
-            <FSDImage src='/images/smile-hero.png' alt='smile' className="-mt-26 w-[90%] ms-24 md:-mt-30 lg:-mt-30"></FSDImage>
+      <Section innerClassName='h-svh' outerClassName='!h-screen !py-0 bg-[linear-gradient(71deg,rgba(255,255,255,1)_0%,rgba(218,252,237,1)_100%)]'>
+        <div className='mx-auto max-w-[380px] md:max-w-[500px] lg:max-w-max relative flex gap-4 lg:gap-18 mt-8 md:mt-14 justify-center flex-col lg:flex-row h-full lg:justify-between'>
+          <div className='lg:w-full md:mt-4 lg:my-auto md:order-2 lg:order-0 flex flex-col gap-6'>
+            <div className='flex flex-col gap-3 lg:gap-6'>
+              <Title className='lg:text-4xl'>Foglaljon időpontot:</Title>
+              <ul className='lg:text-xl'>
+                <li><LinkWrapper link={"tel:+3688444644"}> +3688444644</LinkWrapper>, <LinkWrapper link={"tel:+36309463145"}>+36309463145</LinkWrapper></li>
+                <li><LinkWrapper link={"mailto:info@promedicum.hu"}>info@promedicum.hu</LinkWrapper></li>
+                <li><LinkWrapper link={"https://promedicum.hu/idopontfoglalas"}>Promedicum</LinkWrapper></li>
+              </ul>
+            </div>
+
+            <div className='p-2 px-4 text-2xl border border-green-900  w-full md:w-fit text-center rounded-xl'>
+              <p><span className='font-bold'>H, SZ, P</span>: 8-14 <span className='font-bold'>K</span>: 14-19</p>
+            </div>
           </div>
 
-          <FSDImage src='/images/Krisztina-hero.png' alt='Fogászat' className="mx-auto md:order-0 md:h-[50%] xl:h-[70%] lg:my-auto rounded-2xl"></FSDImage>
+          <FSDImage src='/images/Krisztina-hero.png' alt='Fogászat' className="mx-auto md:order-0 md:h-[50%] lg:w-[50%] xl:h-[70%] lg:my-auto rounded-2xl"></FSDImage>
         </div>
-      </Section>      
-        
+      </Section>
+
       <Section id='Rólam' outerClassName='bg-blue-50/80' innerClassName='flex flex-col gap-4 mx-auto'>
         <div className='md:max-w-[80%] flex flex-col gap-4 md:gap-6 mx-auto'>
           <Title>Szakértelem és gondoskodás 1995 óta</Title>
@@ -50,32 +59,27 @@ function page() {
       </Section>
 
       <Section id='Időpontok' innerClassName='flex flex-col gap-4'>
-          <div className='my-auto w-full flex flex-col gap-4 md:gap-6 md:max-w-[80%] mx-auto'>
-            <Title>Mikor rendelek:</Title>
-
-            <TimetableRow value="8-14" label={
-              <>
-                Hétf<span className="text-2xl font-semibold md:text-sm lg:text-lg md:font-bold">ő</span>
-              </>
-            } />  
-
+        <div className='md:max-w-[80%] w-full flex flex-col gap-4 md:gap-6 mx-auto'>
+          <Title>Mikor rendelek:</Title>
+          <div className='w-full grid grid-cols-2 lg:grid-cols-4  gap-4'>
             {Object.entries(timetable).map(([key, value], index) => (
-                <TimetableRow key={index} value={value} label={key} />  
+              <TimetableRow key={index} value={value} label={key} />
             ))}
           </div>
+        </div>
       </Section>
-      
+
       <Section id='Kapcsolat' outerClassName='bg-blue-50/80' innerClassName='flex flex-col gap-4'>
-          <div className='my-auto w-full flex flex-col gap-4 md:gap-6 md:max-w-[80%] mx-auto'>
-            <Title>Id<span className='text-3xl font-semibold md:text-xl md:font-bold'>ő</span>pontfoglalás</Title>
-            <p>
-              Időpontfoglalás lehetséges a  
-              <LinkWrapper link={"tel:+3688444644"} className={"font-bold text-green-900 hover:text-green-900/70"}> +3688444644</LinkWrapper>, 
-              illetve <LinkWrapper link={"tel:+36309463145"} className={"font-bold text-green-900 hover:text-green-900/70"}>+36309463145</LinkWrapper> telefonszámon, 
-              a <LinkWrapper link={"https://promedicum.hu/idopontfoglalas"} className={"font-bold text-green-900 hover:text-green-900/70"}>Promedicum honlapján</LinkWrapper> keresztül 
-              vagy személyesen a Nárcisz utca 2-ben.
-            </p>
-          </div>
+        <div className='my-auto w-full flex flex-col gap-4 md:gap-6 md:max-w-[80%] mx-auto'>
+          <Title>Időpontfoglalás</Title>
+          <p>
+            Időpontfoglalás lehetséges a
+            <LinkWrapper link={"tel:+3688444644"} > +3688444644</LinkWrapper>,
+            illetve <LinkWrapper link={"tel:+36309463145"} >+36309463145</LinkWrapper> telefonszámon,
+            a <LinkWrapper link={"https://promedicum.hu/idopontfoglalas"} >Promedicum honlapján</LinkWrapper> keresztül
+            vagy személyesen a Nárcisz utca 2-ben.
+          </p>
+        </div>
       </Section>
     </Layout>
   );
