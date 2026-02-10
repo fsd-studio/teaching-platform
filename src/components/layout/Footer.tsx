@@ -1,4 +1,5 @@
 import Section from "@/components/template/ui/Section";
+import { NAV_ITEMS } from "@/constants/navigation";
 
 type FooterProps = {
     logo?: string,
@@ -11,7 +12,7 @@ type SocialPlatform = "twitter" | "facebook" | "instagram" | "linkedin" | "x";
 
 function Footer({
     name = "Dr Somogyi Krisztina",
-    sections = ["About", "Schedule", "Contact"],
+    sections = NAV_ITEMS,
 }: FooterProps) {
     const currentDate = new Date()
     const currentYear = currentDate.getFullYear()
@@ -51,8 +52,8 @@ function Footer({
             
             
             <div className="text-center text-xs md:text-md md:flex justify-between mt-10">
-                <p className="text-center">© {currentYear} Dr Somogyi Krisztina. All rights reserved.</p>
-                <a target="_blank" href="https://fsd-studio.com">developed by <span className="underline underline-offset-2">FSD Studio</span></a>
+                <p className="text-center">© {currentYear} Dr Somogyi Krisztina. Minden jog fenntartva.</p>
+                <a target="_blank" href="https://fsd-studio.com">készítette: <span className="underline underline-offset-2">FSD Studio</span></a>
             </div>
         </Section>
     );

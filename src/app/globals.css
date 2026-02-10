@@ -5,6 +5,10 @@
   --foreground: #171717;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root:has(.no-doc-scroll) {
   overflow: hidden;
 }
