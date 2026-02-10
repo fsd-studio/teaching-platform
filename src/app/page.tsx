@@ -55,7 +55,7 @@ function page() {
 
             <TimetableRow value="8-14" label={
               <>
-                Hétf<span className="text-sm font-bold">ő</span>
+                Hétf<span className="text-2xl font-semibold md:text-sm lg:text-lg md:font-bold">ő</span>
               </>
             } />  
 
@@ -67,7 +67,7 @@ function page() {
       
       <Section id='Kapcsolat' outerClassName='bg-blue-50/80' innerClassName='flex flex-col gap-4'>
           <div className='my-auto w-full flex flex-col gap-4 md:gap-6 md:max-w-[80%] mx-auto'>
-            <Title>Id<span className='text-xl font-bold'>ő</span>pontfoglalás</Title>
+            <Title>Id<span className='text-3xl font-semibold md:text-xl md:font-bold'>ő</span>pontfoglalás</Title>
             <p>
               Időpontfoglalás lehetséges a  
               <LinkWrapper link={"tel:+3688444644"} className={"font-bold text-green-900 hover:text-green-900/70"}> +3688444644</LinkWrapper>, 
