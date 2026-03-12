@@ -14,7 +14,7 @@ export const metadata = {
 };
 
 const timetable = {
-  "Hétfő": "8-14",
+  "Hétfő": "10-16",
   "Kedd": "8-14",
   "Szerda": "14-19",
   "Péntek": "8-14"
