@@ -5,6 +5,10 @@
   --foreground: #171717;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root:has(.no-doc-scroll) {
   overflow: hidden;
 }
@@ -18,9 +22,10 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-primary: var(--font-primary);
   --font-sans: var(--font-geist-sans);
   --font-primary: var(--font-primary);
+  --font-secondary: var(--font-secondary);
+  --font-primary-bold: var(--font-primary-bold);
   --font-mono: var(--font-geist-mono);
 }
 

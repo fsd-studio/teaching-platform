@@ -1,6 +1,4 @@
-import FSDImage from "@/components/template/ui/FSDImage";
 import Section from "@/components/template/ui/Section";
-import Logo from "public/template/logo.png";
 import { ReactNode } from "react";
 
 import {
@@ -20,8 +18,7 @@ type FooterProps = {
 type SocialPlatform = "twitter" | "facebook" | "instagram" | "linkedin" | "x";
 
 function Footer({
-    logo = Logo.src,
-    name = "Your Brand",
+    name = "Dr Somogyi Krisztina",
     sections = ["About", "Menu", "Gallery", "Contact"],
     socialMedia = {
         twitter: "x.com",
@@ -48,12 +45,6 @@ function Footer({
             <div className="md:flex justify-between">
                 <div>
                     <div className="flex items-center h-fit gap-8 justify-center">
-                        <FSDImage
-                            src={logo}
-                            alt="logo"
-                            className="h-16 w-auto"
-                        />
-                        
                         <h2 className="text-4xl font-black">
                             {name}
                         </h2>
