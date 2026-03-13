@@ -36,7 +36,7 @@ function page() {
             </div>
 
             <div className='p-2 px-4 text-2xl border border-green-900  w-full md:w-fit text-center rounded-xl'>
-              <p><span className='font-bold'>H, K, P</span>: 8-14 <span className='font-bold'>Sz</span>: 14-19</p>
+              <p><span className='font-bold'>H</span>: 10-16 <span className='font-bold'>K, P</span>: 8-14 <span className='font-bold'>Sz</span>: 14-19</p>
             </div>
           </div>
 
