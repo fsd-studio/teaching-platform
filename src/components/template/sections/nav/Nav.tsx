@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import Section from '@/components/template/ui/Section';
 import { NAV_ITEMS } from '@/constants/navigation';
+import { NAME } from '@/constants/names';
 
 type NavProps = {
   children?: ReactNode, 
@@ -18,7 +19,7 @@ export default function Nav ({
         <div className='flex items-center h-16 justify-between w-full'>
           {/* Logo */}
           <div className='flex items-center'>
-            <h4 className='font-primary text-4xl md:text-5xl'>Dr Somogyi Krisztina</h4>
+            <h4 className='font-primary text-4xl md:text-5xl'>{NAME}</h4>
           </div>
 
           {children}

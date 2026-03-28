@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono, Oswald } from "next/font/google";
 import localFont from "next/font/local";
 import './globals.css';
+import Layout from "@/components/template/layouts/Layout";
 
 const geistSans = Geist({
     variable: '--font-geist-sans',
@@ -38,7 +39,9 @@ export default function RootLayout({
     return (
         <html lang="hu" className={`${geistSans.variable} ${fontSecondary.variable} ${geistMono.variable} ${fontPrimary.variable} ${fontPrimaryBold.variable}`}>
             <body>
-                {children}
+                <Layout>
+                    {children}
+                </Layout>
             </body>
         </html>
     )
