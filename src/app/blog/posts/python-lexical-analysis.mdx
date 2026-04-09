@@ -1,0 +1,74 @@
+---
+title: "Python's Lexical Analysis: an interactive demo"
+publishedAt: '2026-04-01'
+summary: "Python's Lexical Analysis: an interactive demo"
+---
+
+The CPython implementation, the most widely-available and used implementation of the Python language has an interpreter-based architecture, however, what many people don't know is that  this only possible because of the Lexical Analysis performed in the compiler phase.
+
+## What Is Lexical Analysis?
+
+Lexical Analysis is a process within Computer Science which converts raw text into smaller, meaningful chunks called tokens. This is not only used within compilers but also in the field of Natural Language Processing. 
+
+![CPython Interpretation Pipeline](/images/blog/python-lexical-analysis/CPython-Pipeline1.jpg)
+
+**Token** = In essence, a meaningful Categorical unit assigned to source code strings. Token categories are represented as integers for memory purposes.
+
+**Examples:**
+
+| Source Code   | Token | Token Meaning |
+| ------------- | ----- | ------------- |
+| If            | 1     | NAME          |
+| (             | 7     | LPAR          |
+| "hello world" | 3     | STRING        |
+
+
+[This](https://www.geeksforgeeks.org/python/python-tokens-and-character-sets/) article does a good job providing a high-level explanation of the different **token categories**.
+
+## Why Tokens?
+
+Of course, to truly understand tokenization it's important to point out why tokens are used in the first place. Tokens are absolutely vital for 2 key reasons: 
+
+### 1. Filtering
+
+Source code that is not needed for future steps is simply removed. Take for example comments and spaces. 
+
+The following Python code:
+
+```python
+reader = "learning" # hopefully
+```
+
+Would be tokenized like this:
+
+| Source Code | Token | Token Meaning |
+| ----------- | ----- | ------------- |
+| reader      | 1     | NAME          |
+| =           | 22    | EQUAL         |
+| "learning"  | 3     | STRING        |
+
+
+Notice how the comment and the spaces are not tokenized. 
+
+### 2. Categorizing
+
+The second benefit is that elements are grouped together and categorized. The following characters 
+
+`['l', 'e', 'a', 'r', 'n', 'i', 'n', 'g']`
+
+are read and correctly categorized as a related string literal "learning" as token **STRING**.
+
+## Interactive Demo
+
+Lastly, I'll leave you with this demo that can hopefully offer some insight as to how tokens are created:
+
+<Pyodide />
+
+# Resources
+
+
+[Lexical Analysis Python documentation](https://docs.python.org/3/reference/lexical_analysis.html)
+
+[Article on token categorization and character sets within Python](https://www.youtube.com/watch?v=bxpc9Pp5pZM)
+
+[Video on how Python uses tokens in it's parsing phase](https://www.youtube.com/watch?v=bxpc9Pp5pZM)

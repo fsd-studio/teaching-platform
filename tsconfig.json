@@ -1,12 +1,13 @@
 {
   "include": [
     "src/**/*",
+    "mdx-components.tsx",
     "next-env.d.ts",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts"
   ],
   "compilerOptions": {
-    "baseUrl": ".", // Set to "." to make "@/" math start from the root
+    "baseUrl": ".",
     "paths": {
       "@/*": [
         "./src/*"
@@ -21,7 +22,7 @@
       "dom",
       "dom.iterable",
       "esnext"
-    ], // Essential for React/Browser types
+    ], 
     "skipLibCheck": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -34,7 +35,6 @@
         "name": "next"
       }
     ],
-    // Your preferred strict settings
     "noImplicitAny": true,
     "noImplicitOverride": true,
     "noUnusedLocals": true,

@@ -1,15 +1,18 @@
+import Pyodide from "@/app/components/pyodide/Pyodide";
 import Section from "@/components/template/ui/Section";
-import { MDXRemote } from 'next-mdx-remote/rsc';
 import { getBlogPosts } from "@/utils";
+import { MDXRemote } from 'next-mdx-remote/rsc';
 import { notFound } from "next/navigation";
+import rehypeHighlight from 'rehype-highlight';
+import remarkGfm from 'remark-gfm';
 
-export default async function page({ params }: { params: Promise<{ slug: string}> } ) {
+export default async function page({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params
 
     let post = getBlogPosts().find((post) => {
-            console.log(post.slug, slug)
-            return (post.slug === slug)
-        })
+        console.log(post.slug, slug)
+        return (post.slug === slug)
+    })
 
     console.log(slug)
 
@@ -17,9 +20,13 @@ export default async function page({ params }: { params: Promise<{ slug: string}
         notFound()
     }
 
+    const mdxComponents = {
+        Pyodide: Pyodide,
+    }
+
     return (
         <Section innerClassName="mt-10">
-            {/* <script
+            {/* <script2
                 type="application/ld+json"
                 suppressHydrationWarning
                 dangerouslySetInnerHTML={{
@@ -46,18 +53,27 @@ export default async function page({ params }: { params: Promise<{ slug: string}
             </h1>
             <div className="flex justify-between items-center mt-2 mb-8 text-sm">
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                {post.metadata.publishedAt}
+                    {post.metadata.publishedAt}
                 </p>
             </div>
             <article className="prose prose-headings:mt-8 prose-headings:font-semibold prose-headings:text-black prose-h1:text-5xl prose-h2:text-4xl prose-h3:text-3xl prose-h4:text-2xl prose-h5:text-xl prose-h6:text-lg prose-p:text-justify">
-                <MDXRemote source={post.content}/>
+                <MDXRemote
+                    components={mdxComponents}
+                    source={post.content}
+                    options={{
+                        mdxOptions: {
+                            remarkPlugins: [remarkGfm],
+                            rehypePlugins: [rehypeHighlight],
+                        },
+                    }}
+                />
             </article>
         </Section>
     );
 }
 
 export async function generateStaticParams() {
-  return getBlogPosts().map(post => ({ slug: post.slug }))
+    return getBlogPosts().map(post => ({ slug: post.slug }))
 }
 
 
